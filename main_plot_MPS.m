@@ -24,12 +24,6 @@ addpath(soundPath) ;
 soundsList = dir(strcat(soundPath,'*.wav')) ;
 nbSounds = length(soundsList) ;
 
-iterationCount = 100 ; % number of iterations in the Griffin & Lim algorithm
-
-dontEstimateTimeDelay = 0 ;
-dontRandomizePhase = 0 ;
-
-
 %% MPS
 label = struct([]) ;
 MPS_tab = [] ;
@@ -42,8 +36,6 @@ filename1 = [soundPath filename] ;
 C1 = strsplit(filename1,'_') ;
 C = strsplit(C1{end},'.wav') ;
 wavtemp = audioread(filename1) ;
-% wavtemp = wavtemp(10000:10000+fs/2);
-
 
 NFFT_temporal = 2048 ;
 NFFT_spectral = 2*windowSize ;
@@ -61,11 +53,4 @@ title(filename1)
 xlabel('Rates (Hz)')
 ylabel('Scales (cyc/Hz)')
 colorbar
-
-
-    
-    
-
-
-
 
